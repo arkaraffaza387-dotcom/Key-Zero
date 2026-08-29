@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Verifikasi Follow</title>
+    <title>Verifikasi Follow • AzferModz</title>
     <style>
         /* ==================== LOADING SCREEN STYLES ==================== */
         * {
@@ -876,9 +876,19 @@
         .key-expiry {
             color: #ff6b6b;
             font-size: 0.85rem;
-            margin-top: 10px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
+            margin-top: 12px;
+            padding: 8px 16px;
+            background: rgba(139, 0, 0, 0.3);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 68, 68, 0.5);
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .key-expiry.active {
+            color: #4caf50;
+            border-color: rgba(76, 175, 80, 0.5);
+            background: rgba(76, 175, 80, 0.1);
         }
 
         .copy-button {
@@ -961,7 +971,7 @@
     </style>
 </head>
 <body>
-    <!-- ==================== LOADING SCREEN ==================== -->
+    <!-- LOADING SCREEN -->
     <div id="loadingScreen">
         <div class="loading-particles">
             <div class="loading-particle"></div>
@@ -998,7 +1008,7 @@
             <div class="loading-percentage" id="loadingPercentage">0%</div>
 
             <div class="loading-text" id="loadingText">
-                <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+                <span>V</span><span>E</span><span>R</span><span>I</span><span>F</span><span>I</span><span>K</span><span>A</span><span>S</span><span>I</span>
             </div>
 
             <div class="loading-progress-container">
@@ -1009,7 +1019,7 @@
         </div>
     </div>
 
-    <!-- ==================== VERIFICATION CARD ==================== -->
+    <!-- VERIFICATION CARD -->
     <div class="verification-card hidden" id="verificationApp">
         <h1>🔐 VERIFIKASI FOLLOW</h1>
         <div class="subhead">Ikuti 6 channel komunitas</div>
@@ -1114,37 +1124,31 @@
                 { name: "KOMUNITAS OFFICIAL 6", url: "https://whatsapp.com/channel/0029VbDBArY9MF8uLpmviF1S", icon: "🏆" }
             ];
 
-            // Key #2 - Aktif sampai 5 September 2026
-            const keyAzferFree = {
-                key: "AzferFree",
-                expiryDate: new Date('2026-09-05T23:59:59'),
-                tier: "FREE"
-            };
-            
-            // Key #3 - Aktif sampai 26 November 2026 (PRIORITAS)
-            const keyAzferCode = {
-                key: "AzferCode",
-                expiryDate: new Date('2026-11-26T23:59:59'),
-                tier: "CODE"
-            };
-
-            function getActiveKey() {
+            function getAvailableKey() {
                 const now = new Date();
                 
-                if (now <= keyAzferCode.expiryDate) {
-                    return keyAzferCode;
-                }
+                const freeKeyExpiry = new Date('2026-09-05T23:59:59');
+                const codeKeyExpiry = new Date('2026-11-26T23:59:59');
                 
-                if (now <= keyAzferFree.expiryDate) {
-                    return keyAzferFree;
+                if (now <= freeKeyExpiry) {
+                    return {
+                        key: 'AzferFree',
+                        expiry: '5 September 2026',
+                        isActive: true
+                    };
+                } else if (now <= codeKeyExpiry) {
+                    return {
+                        key: 'AzferCode',
+                        expiry: '26 November 2026',
+                        isActive: true
+                    };
+                } else {
+                    return {
+                        key: 'EXPIRED',
+                        expiry: 'Semua key telah kadaluarsa',
+                        isActive: false
+                    };
                 }
-                
-                return null;
-            }
-
-            function formatDate(date) {
-                const options = { day: 'numeric', month: 'long', year: 'numeric' };
-                return date.toLocaleDateString('id-ID', options);
             }
 
             let currentStep = 0;
@@ -1204,41 +1208,21 @@
                     startCountdown();
                 } 
                 else if (phase === 'key') {
-                    const activeKey = getActiveKey();
-                    
-                    if (!activeKey) {
-                        const expiredPanel = document.createElement('div');
-                        expiredPanel.className = 'key-box';
-                        expiredPanel.style.borderColor = '#ff4444';
-                        expiredPanel.innerHTML = `
-                            <div class="key-label" style="color: #ff4444;">❌ KEY EXPIRED</div>
-                            <div style="color: #ff6b6b; font-size: 1.2rem; margin: 20px 0;">
-                                Semua key telah kadaluarsa.<br>
-                                Silahkan hubungi admin untuk key baru.
-                            </div>
-                            <div style="color: #886666; font-size: 0.8rem; margin-top: 10px;">
-                                Terakhir diperbarui: ${formatDate(new Date())}
-                            </div>
-                        `;
-                        dynamicContent.appendChild(expiredPanel);
-                        return;
-                    }
-                    
-                    const expiryText = formatDate(activeKey.expiryDate);
-                    const tierBadge = activeKey.tier === 'CODE' ? 'PREMIUM CODE' : 'FREE ACCESS';
-                    
+                    const availableKey = getAvailableKey();
                     const keyPanel = document.createElement('div');
                     keyPanel.className = 'key-box';
                     keyPanel.innerHTML = `
-                        <div class="key-label">🔑 KEY ${tierBadge}</div>
-                        <div class="key-value" id="keyValue">${activeKey.key}</div>
-                        <div class="key-expiry">⏰ Berlaku sampai: ${expiryText}</div>
+                        <div class="key-label">🔑 KEY AKTIF ANDA</div>
+                        <div class="key-value" id="keyValue">${availableKey.key}</div>
+                        <div class="key-expiry ${availableKey.isActive ? 'active' : ''}">
+                            📅 Berlaku sampai: ${availableKey.expiry}
+                        </div>
                         <button class="copy-button" id="copyKeyButton">
                             📋 SALIN KEY
                         </button>
                     `;
                     dynamicContent.appendChild(keyPanel);
-                    attachCopyHandler(activeKey.key);
+                    attachCopyHandler();
                 }
             }
 
@@ -1290,12 +1274,23 @@
                 }, 1000);
             }
 
-            function attachCopyHandler(keyValue) {
+            function attachCopyHandler() {
                 const copyBtn = document.getElementById('copyKeyButton');
                 if (!copyBtn) return;
                 copyBtn.addEventListener('click', async () => {
+                    const availableKey = getAvailableKey();
+                    const keyText = availableKey.key;
+                    
+                    if (!availableKey.isActive) {
+                        copyBtn.textContent = '❌ KEY EXPIRED';
+                        setTimeout(() => {
+                            copyBtn.innerHTML = '📋 SALIN KEY';
+                        }, 2000);
+                        return;
+                    }
+                    
                     try {
-                        await navigator.clipboard.writeText(keyValue);
+                        await navigator.clipboard.writeText(keyText);
                         copyBtn.textContent = '✅ TERSALIN!';
                         copyBtn.style.background = 'linear-gradient(135deg, #1a3a1a, #0d2a0d)';
                         copyBtn.style.borderColor = '#00cc00';
@@ -1306,7 +1301,7 @@
                         }, 2000);
                     } catch (err) {
                         const textArea = document.createElement('textarea');
-                        textArea.value = keyValue;
+                        textArea.value = keyText;
                         document.body.appendChild(textArea);
                         textArea.select();
                         document.execCommand('copy');
