@@ -1,10 +1,11 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Verifikasi Follow • AzferModz</title>
+    <title>Login Key • Verifikasi Follow</title>
     <style>
-        /* ==================== LOADING SCREEN STYLES ==================== */
+        /* ==================== GLOBAL STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -327,6 +328,7 @@
         .loading-text span:nth-child(8) { animation-delay: 0.7s; }
         .loading-text span:nth-child(9) { animation-delay: 0.8s; }
         .loading-text span:nth-child(10) { animation-delay: 0.9s; }
+        .loading-text span:nth-child(11) { animation-delay: 1.0s; }
 
         .loading-progress-container {
             width: 300px;
@@ -496,6 +498,186 @@
             to { opacity: 1; transform: scale(1); }
         }
 
+        /* ==================== LOGIN KEY SCREEN ==================== */
+        .login-card {
+            background: linear-gradient(165deg, #1a0a0a 0%, #0d0505 30%, #1a0a0a 70%, #0a0000 100%);
+            border: 2px solid var(--emas-tua, #b8860b);
+            border-radius: 40px;
+            box-shadow: 
+                0 30px 60px -12px rgba(139, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 215, 0, 0.3) inset,
+                0 0 30px rgba(184, 134, 11, 0.3);
+            width: 100%;
+            max-width: 480px;
+            padding: 40px 30px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(8px);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .login-card::before {
+            content: "";
+            position: absolute;
+            top: -2px;
+            left: 20%;
+            right: 20%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ffed4a, #ffd700, #ffed4a, transparent);
+            border-radius: 50%;
+            filter: blur(1px);
+            animation: border-shine 3s ease-in-out infinite;
+        }
+
+        @keyframes border-shine {
+            0%, 100% { opacity: 0.5; transform: scaleX(0.8); }
+            50% { opacity: 1; transform: scaleX(1); }
+        }
+
+        .login-title {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffd700 0%, #ffed4a 30%, #b8860b 60%, #ffd700 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-align: center;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .login-subtitle {
+            text-align: center;
+            color: #cc9999;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .key-input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .key-input {
+            width: 100%;
+            padding: 16px 20px;
+            background: #0d0202;
+            border: 2px solid #8b6914;
+            border-radius: 20px;
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            font-family: 'Courier New', monospace;
+            transition: all 0.3s ease;
+            outline: none;
+            text-align: center;
+        }
+
+        .key-input:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(139, 0, 0, 0.3);
+        }
+
+        .key-input::placeholder {
+            color: #886666;
+            letter-spacing: 1px;
+            font-weight: 400;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        .key-input.error {
+            border-color: #ff4444;
+            box-shadow: 0 0 20px rgba(255, 68, 68, 0.5);
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            50% { transform: translateX(10px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .login-button {
+            background: linear-gradient(135deg, #8b0000 0%, #cc0000 50%, #8b0000 100%);
+            border: 2px solid #ffd700;
+            color: #ffed4a;
+            font-weight: 800;
+            font-size: 1.2rem;
+            padding: 16px 36px;
+            border-radius: 60px;
+            cursor: pointer;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 30px -5px rgba(139, 0, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-button::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 215, 0, 0.3) 50%, transparent 60%);
+            animation: button-shine 3s infinite;
+        }
+
+        @keyframes button-shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .login-button:hover {
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #cc0000 0%, #ff1a1a 50%, #cc0000 100%);
+            box-shadow: 0 18px 40px -6px rgba(204, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.4);
+            border-color: #ffed4a;
+        }
+
+        .login-button:active {
+            transform: scale(0.98);
+        }
+
+        .forgot-key-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #cc9999;
+            cursor: pointer;
+            text-decoration: underline dotted;
+            transition: all 0.3s;
+            display: block;
+        }
+
+        .forgot-key-link:hover {
+            color: #ffd700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .error-message {
+            text-align: center;
+            color: #ff4444;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            min-height: 20px;
+            letter-spacing: 1px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
         /* ==================== VERIFICATION CARD STYLES ==================== */
         :root {
             --merah-gelap: #1a0000;
@@ -545,11 +727,6 @@
             border-radius: 50%;
             filter: blur(1px);
             animation: border-shine 3s ease-in-out infinite;
-        }
-
-        @keyframes border-shine {
-            0%, 100% { opacity: 0.5; transform: scaleX(0.8); }
-            50% { opacity: 1; transform: scaleX(1); }
         }
 
         h1 {
@@ -720,11 +897,6 @@
             height: 200%;
             background: linear-gradient(45deg, transparent 40%, rgba(255, 215, 0, 0.3) 50%, transparent 60%);
             animation: button-shine 3s infinite;
-        }
-
-        @keyframes button-shine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
         }
 
         .follow-button:hover {
@@ -951,12 +1123,9 @@
             gap: 6px;
         }
 
-        .hidden {
-            display: none !important;
-        }
-
         @media (max-width: 400px) {
             .verification-card { padding: 20px 14px; }
+            .login-card { padding: 24px 16px; }
             .key-value { font-size: 1.5rem; }
             .follow-button { font-size: 1rem; }
             .countdown-number { font-size: 3.5rem; }
@@ -967,6 +1136,8 @@
             .orbit-1 { width: 140px; height: 140px; }
             .orbit-2 { width: 110px; height: 110px; top: 15px; left: 15px; }
             .orbit-3 { width: 80px; height: 80px; top: 30px; left: 30px; }
+            .key-input { font-size: 0.9rem; padding: 14px 12px; }
+            .login-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -1008,7 +1179,7 @@
             <div class="loading-percentage" id="loadingPercentage">0%</div>
 
             <div class="loading-text" id="loadingText">
-                <span>V</span><span>E</span><span>R</span><span>I</span><span>F</span><span>I</span><span>K</span><span>A</span><span>S</span><span>I</span>
+                <span>M</span><span>E</span><span>M</span><span>U</span><span>A</span><span>T</span><span>.</span><span>.</span><span>.</span>
             </div>
 
             <div class="loading-progress-container">
@@ -1017,6 +1188,36 @@
 
             <div class="loading-status" id="loadingStatus">Memuat Sistem...</div>
         </div>
+    </div>
+
+    <!-- LOGIN KEY SCREEN -->
+    <div class="login-card hidden" id="loginScreen">
+        <div class="login-title">🔑 LOGIN KEY</div>
+        <div class="login-subtitle">Masukkan key untuk melanjutkan</div>
+        
+        <div class="key-input-group">
+            <input 
+                type="text" 
+                class="key-input" 
+                id="keyInput" 
+                placeholder="AzferFree_XXXXXXXXXXXXXXXXXXXXXXX"
+                autocomplete="off"
+                spellcheck="false"
+            >
+        </div>
+        
+        <button class="login-button" id="loginButton">
+            🔓 LOGIN
+        </button>
+        
+        <div class="error-message" id="errorMessage"></div>
+        
+        <a href="https://arkaraffaza387-dotcom.github.io/Key-Awal/" 
+           class="forgot-key-link" 
+           target="_blank" 
+           rel="noopener noreferrer">
+            🔑 Lupa Key? Klik di sini
+        </a>
     </div>
 
     <!-- VERIFICATION CARD -->
@@ -1051,7 +1252,7 @@
             const loadingProgressBar = document.getElementById('loadingProgressBar');
             const loadingStatus = document.getElementById('loadingStatus');
             const loadingScreen = document.getElementById('loadingScreen');
-            const verificationApp = document.getElementById('verificationApp');
+            const loginScreen = document.getElementById('loginScreen');
 
             const loadingStatusMessages = [
                 'Memuat Sistem...',
@@ -1098,8 +1299,9 @@
                 
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
-                    verificationApp.classList.remove('hidden');
-                    verificationApp.style.animation = 'fadeIn 0.8s ease';
+                    loginScreen.classList.remove('hidden');
+                    loginScreen.style.animation = 'fadeIn 0.8s ease';
+                    document.getElementById('keyInput').focus();
                 }, 800);
             }
 
@@ -1113,8 +1315,76 @@
             }, loadingConfig.totalDuration + 3000);
         })();
 
-        // ==================== VERIFICATION LOGIC ====================
+        // ==================== LOGIN KEY LOGIC ====================
         (function() {
+            const loginScreen = document.getElementById('loginScreen');
+            const verificationApp = document.getElementById('verificationApp');
+            const keyInput = document.getElementById('keyInput');
+            const loginButton = document.getElementById('loginButton');
+            const errorMessage = document.getElementById('errorMessage');
+
+            function validateKey(key) {
+                // Validasi format: AzferFree_ diikuti 23 karakter (huruf + angka)
+                const keyPattern = /^AzferFree_[A-Za-z0-9]{23}$/;
+                return keyPattern.test(key);
+            }
+
+            function attemptLogin() {
+                const key = keyInput.value.trim();
+                
+                if (!key) {
+                    showError('⚠️ Masukkan key terlebih dahulu!');
+                    keyInput.classList.add('error');
+                    setTimeout(() => keyInput.classList.remove('error'), 500);
+                    return;
+                }
+
+                if (validateKey(key)) {
+                    // Login berhasil
+                    errorMessage.textContent = '';
+                    loginButton.textContent = '✅ BERHASIL!';
+                    loginButton.style.background = 'linear-gradient(135deg, #1a3a1a, #0d2a0d)';
+                    loginButton.style.borderColor = '#00cc00';
+                    
+                    setTimeout(() => {
+                        loginScreen.classList.add('hidden');
+                        verificationApp.classList.remove('hidden');
+                        verificationApp.style.animation = 'fadeIn 0.8s ease';
+                        initVerification();
+                    }, 800);
+                } else {
+                    showError('❌ Key tidak valid! Format: AzferFree_[23 karakter]');
+                    keyInput.classList.add('error');
+                    setTimeout(() => keyInput.classList.remove('error'), 500);
+                    loginButton.textContent = '🔓 LOGIN';
+                }
+            }
+
+            function showError(message) {
+                errorMessage.textContent = message;
+                setTimeout(() => {
+                    errorMessage.textContent = '';
+                }, 3000);
+            }
+
+            loginButton.addEventListener('click', attemptLogin);
+
+            keyInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    attemptLogin();
+                }
+            });
+
+            keyInput.addEventListener('input', function() {
+                errorMessage.textContent = '';
+                loginButton.textContent = '🔓 LOGIN';
+                loginButton.style.background = '';
+                loginButton.style.borderColor = '';
+            });
+        })();
+
+        // ==================== VERIFICATION LOGIC ====================
+        function initVerification() {
             const communities = [
                 { name: "KOMUNITAS OFFICIAL 1", url: "https://whatsapp.com/channel/0029Vb8STPh0VycODHqyol10", icon: "📢" },
                 { name: "KOMUNITAS OFFICIAL 2", url: "https://whatsapp.com/channel/0029Vb8STPh0VycODHqyol10", icon: "🚀" },
@@ -1126,7 +1396,6 @@
 
             function getAvailableKey() {
                 const now = new Date();
-                
                 const freeKeyExpiry = new Date('2026-09-05T23:59:59');
                 const codeKeyExpiry = new Date('2026-11-26T23:59:59');
                 
@@ -1326,7 +1595,7 @@
             };
 
             render();
-        })();
+        }
     </script>
 </body>
 </html>
