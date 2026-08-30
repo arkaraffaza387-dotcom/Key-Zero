@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>Login Key • Verifikasi Follow</title>
+    <title>Verifikasi Follow • AzferModz</title>
     <style>
-        /* ==================== GLOBAL STYLES ==================== */
+        /* ==================== LOADING SCREEN STYLES ==================== */
         * {
             margin: 0;
             padding: 0;
@@ -328,7 +328,6 @@
         .loading-text span:nth-child(8) { animation-delay: 0.7s; }
         .loading-text span:nth-child(9) { animation-delay: 0.8s; }
         .loading-text span:nth-child(10) { animation-delay: 0.9s; }
-        .loading-text span:nth-child(11) { animation-delay: 1.0s; }
 
         .loading-progress-container {
             width: 300px;
@@ -498,7 +497,7 @@
             to { opacity: 1; transform: scale(1); }
         }
 
-        /* ==================== LOGIN KEY SCREEN ==================== */
+        /* ==================== LOGIN PAGE STYLES ==================== */
         .login-card {
             background: linear-gradient(165deg, #1a0a0a 0%, #0d0505 30%, #1a0a0a 70%, #0a0000 100%);
             border: 2px solid var(--emas-tua, #b8860b);
@@ -512,7 +511,6 @@
             padding: 40px 30px;
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(8px);
             animation: fadeIn 0.8s ease;
         }
 
@@ -535,15 +533,18 @@
         }
 
         .login-title {
-            font-size: 2rem;
-            font-weight: 800;
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 900;
             background: linear-gradient(135deg, #ffd700 0%, #ffed4a 30%, #b8860b 60%, #ffd700 100%);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            text-align: center;
             margin-bottom: 8px;
-            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
         .login-subtitle {
@@ -555,24 +556,37 @@
         }
 
         .key-input-group {
-            position: relative;
             margin-bottom: 20px;
+        }
+
+        .key-input-label {
+            color: #ffd700;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .key-input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
         }
 
         .key-input {
             width: 100%;
-            padding: 16px 20px;
+            padding: 16px 50px 16px 20px;
             background: #0d0202;
-            border: 2px solid #8b6914;
-            border-radius: 20px;
-            color: #ffd700;
-            font-size: 1.1rem;
-            font-weight: 600;
-            letter-spacing: 2px;
+            border: 2px solid rgba(184, 134, 11, 0.5);
+            border-radius: 16px;
+            color: #ffed4a;
             font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             transition: all 0.3s ease;
             outline: none;
-            text-align: center;
         }
 
         .key-input:focus {
@@ -582,9 +596,7 @@
 
         .key-input::placeholder {
             color: #886666;
-            letter-spacing: 1px;
             font-weight: 400;
-            font-family: 'Segoe UI', sans-serif;
         }
 
         .key-input.error {
@@ -596,8 +608,23 @@
         @keyframes shake {
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-10px); }
-            50% { transform: translateX(10px); }
-            75% { transform: translateX(-5px); }
+            75% { transform: translateX(10px); }
+        }
+
+        .key-toggle {
+            position: absolute;
+            right: 12px;
+            background: none;
+            border: none;
+            color: #cc9999;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 8px;
+            transition: all 0.3s;
+        }
+
+        .key-toggle:hover {
+            color: #ffd700;
         }
 
         .login-button {
@@ -620,6 +647,7 @@
             gap: 10px;
             position: relative;
             overflow: hidden;
+            margin-top: 10px;
         }
 
         .login-button::after {
@@ -642,40 +670,44 @@
             transform: scale(1.02);
             background: linear-gradient(135deg, #cc0000 0%, #ff1a1a 50%, #cc0000 100%);
             box-shadow: 0 18px 40px -6px rgba(204, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.4);
-            border-color: #ffed4a;
         }
 
         .login-button:active {
             transform: scale(0.98);
         }
 
-        .forgot-key-link {
+        .forgot-key {
+            display: block;
             text-align: center;
             margin-top: 20px;
-            font-size: 0.9rem;
             color: #cc9999;
+            font-size: 0.85rem;
             cursor: pointer;
             text-decoration: underline dotted;
             transition: all 0.3s;
-            display: block;
+            background: none;
+            border: none;
+            width: 100%;
+            padding: 8px;
         }
 
-        .forgot-key-link:hover {
+        .forgot-key:hover {
             color: #ffd700;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            opacity: 1;
         }
 
         .error-message {
-            text-align: center;
             color: #ff4444;
             font-size: 0.85rem;
-            margin-top: 10px;
-            min-height: 20px;
-            letter-spacing: 1px;
+            text-align: center;
+            margin-top: 12px;
+            display: none;
+            letter-spacing: 0.5px;
         }
 
-        .hidden {
-            display: none !important;
+        .error-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
         }
 
         /* ==================== VERIFICATION CARD STYLES ==================== */
@@ -1123,9 +1155,13 @@
             gap: 6px;
         }
 
+        .hidden {
+            display: none !important;
+        }
+
         @media (max-width: 400px) {
             .verification-card { padding: 20px 14px; }
-            .login-card { padding: 24px 16px; }
+            .login-card { padding: 30px 20px; }
             .key-value { font-size: 1.5rem; }
             .follow-button { font-size: 1rem; }
             .countdown-number { font-size: 3.5rem; }
@@ -1136,8 +1172,6 @@
             .orbit-1 { width: 140px; height: 140px; }
             .orbit-2 { width: 110px; height: 110px; top: 15px; left: 15px; }
             .orbit-3 { width: 80px; height: 80px; top: 30px; left: 30px; }
-            .key-input { font-size: 0.9rem; padding: 14px 12px; }
-            .login-title { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -1179,7 +1213,7 @@
             <div class="loading-percentage" id="loadingPercentage">0%</div>
 
             <div class="loading-text" id="loadingText">
-                <span>M</span><span>E</span><span>M</span><span>U</span><span>A</span><span>T</span><span>.</span><span>.</span><span>.</span>
+                <span>V</span><span>E</span><span>R</span><span>I</span><span>F</span><span>I</span><span>K</span><span>A</span><span>S</span><span>I</span>
             </div>
 
             <div class="loading-progress-container">
@@ -1190,34 +1224,37 @@
         </div>
     </div>
 
-    <!-- LOGIN KEY SCREEN -->
-    <div class="login-card hidden" id="loginScreen">
-        <div class="login-title">🔑 LOGIN KEY</div>
+    <!-- LOGIN PAGE -->
+    <div class="login-card hidden" id="loginPage">
+        <div class="login-title">🔐 LOGIN KEY</div>
         <div class="login-subtitle">Masukkan key untuk melanjutkan</div>
         
         <div class="key-input-group">
-            <input 
-                type="text" 
-                class="key-input" 
-                id="keyInput" 
-                placeholder="AzferFree_XXXXXXXXXXXXXXXXXXXXXXX"
-                autocomplete="off"
-                spellcheck="false"
-            >
+            <div class="key-input-label">Key Akses</div>
+            <div class="key-input-wrapper">
+                <input 
+                    type="password" 
+                    class="key-input" 
+                    id="keyInput" 
+                    placeholder="AzferFree_XXXXXXXXXXXXXXXXXXXXXXX"
+                    autocomplete="off"
+                    spellcheck="false"
+                />
+                <button class="key-toggle" id="keyToggle" onclick="toggleKeyVisibility()">👁️</button>
+            </div>
         </div>
         
-        <button class="login-button" id="loginButton">
-            🔓 LOGIN
+        <button class="login-button" id="loginButton" onclick="verifyKey()">
+            🔓 MASUK
         </button>
         
-        <div class="error-message" id="errorMessage"></div>
+        <div class="error-message" id="errorMessage">
+            ❌ Key tidak valid! Silakan coba lagi.
+        </div>
         
-        <a href="https://arkaraffaza387-dotcom.github.io/Key-Awal/" 
-           class="forgot-key-link" 
-           target="_blank" 
-           rel="noopener noreferrer">
-            🔑 Lupa Key? Klik di sini
-        </a>
+        <button class="forgot-key" onclick="goToForgotKey()">
+            🔑 Lupa Key? Klik disini
+        </button>
     </div>
 
     <!-- VERIFICATION CARD -->
@@ -1252,7 +1289,7 @@
             const loadingProgressBar = document.getElementById('loadingProgressBar');
             const loadingStatus = document.getElementById('loadingStatus');
             const loadingScreen = document.getElementById('loadingScreen');
-            const loginScreen = document.getElementById('loginScreen');
+            const loginPage = document.getElementById('loginPage');
 
             const loadingStatusMessages = [
                 'Memuat Sistem...',
@@ -1299,9 +1336,8 @@
                 
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
-                    loginScreen.classList.remove('hidden');
-                    loginScreen.style.animation = 'fadeIn 0.8s ease';
-                    document.getElementById('keyInput').focus();
+                    loginPage.classList.remove('hidden');
+                    loginPage.style.animation = 'fadeIn 0.8s ease';
                 }, 800);
             }
 
@@ -1316,75 +1352,72 @@
         })();
 
         // ==================== LOGIN KEY LOGIC ====================
-        (function() {
-            const loginScreen = document.getElementById('loginScreen');
-            const verificationApp = document.getElementById('verificationApp');
+        function toggleKeyVisibility() {
             const keyInput = document.getElementById('keyInput');
-            const loginButton = document.getElementById('loginButton');
+            const keyToggle = document.getElementById('keyToggle');
+            
+            if (keyInput.type === 'password') {
+                keyInput.type = 'text';
+                keyToggle.textContent = '🙈';
+            } else {
+                keyInput.type = 'password';
+                keyToggle.textContent = '👁️';
+            }
+        }
+
+        function verifyKey() {
+            const keyInput = document.getElementById('keyInput');
             const errorMessage = document.getElementById('errorMessage');
-
-            function validateKey(key) {
-                // Validasi format: AzferFree_ diikuti 23 karakter (huruf + angka)
-                const keyPattern = /^AzferFree_[A-Za-z0-9]{23}$/;
-                return keyPattern.test(key);
-            }
-
-            function attemptLogin() {
-                const key = keyInput.value.trim();
+            const enteredKey = keyInput.value.trim();
+            
+            // Validasi format key: AzferFree_ + 23 karakter alfanumerik
+            const keyPattern = /^AzferFree_[A-Za-z0-9]{23}$/;
+            
+            if (keyPattern.test(enteredKey)) {
+                // Key valid, lanjut ke verifikasi
+                errorMessage.classList.remove('show');
+                keyInput.classList.remove('error');
                 
-                if (!key) {
-                    showError('⚠️ Masukkan key terlebih dahulu!');
-                    keyInput.classList.add('error');
-                    setTimeout(() => keyInput.classList.remove('error'), 500);
-                    return;
-                }
-
-                if (validateKey(key)) {
-                    // Login berhasil
-                    errorMessage.textContent = '';
-                    loginButton.textContent = '✅ BERHASIL!';
-                    loginButton.style.background = 'linear-gradient(135deg, #1a3a1a, #0d2a0d)';
-                    loginButton.style.borderColor = '#00cc00';
-                    
-                    setTimeout(() => {
-                        loginScreen.classList.add('hidden');
-                        verificationApp.classList.remove('hidden');
-                        verificationApp.style.animation = 'fadeIn 0.8s ease';
-                        initVerification();
-                    }, 800);
-                } else {
-                    showError('❌ Key tidak valid! Format: AzferFree_[23 karakter]');
-                    keyInput.classList.add('error');
-                    setTimeout(() => keyInput.classList.remove('error'), 500);
-                    loginButton.textContent = '🔓 LOGIN';
-                }
-            }
-
-            function showError(message) {
-                errorMessage.textContent = message;
+                // Sembunyikan login, tampilkan verifikasi
+                const loginPage = document.getElementById('loginPage');
+                const verificationApp = document.getElementById('verificationApp');
+                
+                loginPage.classList.add('hidden');
+                verificationApp.classList.remove('hidden');
+                verificationApp.style.animation = 'fadeIn 0.8s ease';
+                
+                // Reset input
+                keyInput.value = '';
+                keyInput.type = 'password';
+                document.getElementById('keyToggle').textContent = '👁️';
+            } else {
+                // Key tidak valid
+                errorMessage.classList.add('show');
+                keyInput.classList.add('error');
+                
+                // Hapus class error setelah animasi
                 setTimeout(() => {
-                    errorMessage.textContent = '';
-                }, 3000);
+                    keyInput.classList.remove('error');
+                }, 500);
             }
+        }
 
-            loginButton.addEventListener('click', attemptLogin);
-
+        // Enter key untuk submit
+        document.addEventListener('DOMContentLoaded', function() {
+            const keyInput = document.getElementById('keyInput');
             keyInput.addEventListener('keypress', function(e) {
                 if (e.key === 'Enter') {
-                    attemptLogin();
+                    verifyKey();
                 }
             });
+        });
 
-            keyInput.addEventListener('input', function() {
-                errorMessage.textContent = '';
-                loginButton.textContent = '🔓 LOGIN';
-                loginButton.style.background = '';
-                loginButton.style.borderColor = '';
-            });
-        })();
+        function goToForgotKey() {
+            window.open('https://link2unlock.com/0bdb2', '_blank', 'noopener,noreferrer');
+        }
 
         // ==================== VERIFICATION LOGIC ====================
-        function initVerification() {
+        (function() {
             const communities = [
                 { name: "KOMUNITAS OFFICIAL 1", url: "https://whatsapp.com/channel/0029Vb8STPh0VycODHqyol10", icon: "📢" },
                 { name: "KOMUNITAS OFFICIAL 2", url: "https://whatsapp.com/channel/0029Vb8STPh0VycODHqyol10", icon: "🚀" },
@@ -1396,6 +1429,7 @@
 
             function getAvailableKey() {
                 const now = new Date();
+                
                 const freeKeyExpiry = new Date('2026-09-05T23:59:59');
                 const codeKeyExpiry = new Date('2026-11-26T23:59:59');
                 
@@ -1595,7 +1629,7 @@
             };
 
             render();
-        }
+        })();
     </script>
 </body>
 </html>
