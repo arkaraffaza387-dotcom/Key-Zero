@@ -499,7 +499,7 @@
         /* ==================== LOGIN PAGE STYLES ==================== */
         .login-card {
             background: linear-gradient(165deg, #1a0a0a 0%, #0d0505 30%, #1a0a0a 70%, #0a0000 100%);
-            border: 2px solid var(--emas-tua, #b8860b);
+            border: 2px solid #b8860b;
             border-radius: 40px;
             box-shadow: 
                 0 30px 60px -12px rgba(139, 0, 0, 0.8),
@@ -1154,6 +1154,43 @@
             gap: 6px;
         }
 
+        .session-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            padding: 10px;
+            background: rgba(76, 175, 80, 0.1);
+            border-radius: 12px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .session-info .session-dot {
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border-radius: 50%;
+            animation: sessionPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes sessionPulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .session-info .session-text {
+            color: #4caf50;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .session-info .session-time {
+            color: #cc9999;
+            font-size: 0.75rem;
+        }
+
         .hidden {
             display: none !important;
         }
@@ -1261,6 +1298,12 @@
         <h1>🔐 VERIFIKASI FOLLOW</h1>
         <div class="subhead">Ikuti 6 channel komunitas</div>
 
+        <div class="session-info" id="sessionInfo">
+            <div class="session-dot"></div>
+            <div class="session-text">Sesi Aktif</div>
+            <div class="session-time" id="sessionTime"></div>
+        </div>
+
         <div class="progress-container">
             <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
         </div>
@@ -1275,6 +1318,93 @@
     </div>
 
     <script>
+        // ==================== LOCALSTORAGE SESSION MANAGEMENT ====================
+        const SESSION_KEY = 'azfermodz_verified_session';
+        const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 jam
+
+        function saveSession() {
+            const sessionData = {
+                verified: true,
+                timestamp: Date.now(),
+                expiresAt: Date.now() + SESSION_DURATION
+            };
+            localStorage.setItem(SESSION_KEY, JSON.stringify(sessionData));
+        }
+
+        function getSession() {
+            const sessionData = localStorage.getItem(SESSION_KEY);
+            if (!sessionData) return null;
+            
+            try {
+                const parsed = JSON.parse(sessionData);
+                return parsed;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function isSessionValid() {
+            const session = getSession();
+            if (!session) return false;
+            
+            if (Date.now() > session.expiresAt) {
+                clearSession();
+                return false;
+            }
+            
+            return session.verified === true;
+        }
+
+        function clearSession() {
+            localStorage.removeItem(SESSION_KEY);
+        }
+
+        function getSessionRemainingTime() {
+            const session = getSession();
+            if (!session) return 0;
+            
+            const remaining = session.expiresAt - Date.now();
+            return remaining > 0 ? remaining : 0;
+        }
+
+        function formatRemainingTime(milliseconds) {
+            const totalSeconds = Math.floor(milliseconds / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            
+            return `${hours}j ${minutes}m ${seconds}d`;
+        }
+
+        function updateSessionDisplay() {
+            const sessionTimeElement = document.getElementById('sessionTime');
+            if (!sessionTimeElement) return;
+            
+            const remaining = getSessionRemainingTime();
+            if (remaining > 0) {
+                sessionTimeElement.textContent = `• ${formatRemainingTime(remaining)}`;
+            }
+        }
+
+        setInterval(updateSessionDisplay, 1000);
+
+        setInterval(() => {
+            if (!isSessionValid()) {
+                const loginPage = document.getElementById('loginPage');
+                const verificationApp = document.getElementById('verificationApp');
+                
+                if (verificationApp && !verificationApp.classList.contains('hidden')) {
+                    verificationApp.classList.add('hidden');
+                    loginPage.classList.remove('hidden');
+                    loginPage.style.animation = 'fadeIn 0.8s ease';
+                    
+                    if (window.resetVerification) {
+                        window.resetVerification();
+                    }
+                }
+            }
+        }, 1000);
+
         // ==================== LOADING SCREEN LOGIC ====================
         (function() {
             const loadingConfig = {
@@ -1289,6 +1419,7 @@
             const loadingStatus = document.getElementById('loadingStatus');
             const loadingScreen = document.getElementById('loadingScreen');
             const loginPage = document.getElementById('loginPage');
+            const verificationApp = document.getElementById('verificationApp');
 
             const loadingStatusMessages = [
                 'Memuat Sistem...',
@@ -1335,8 +1466,18 @@
                 
                 setTimeout(() => {
                     loadingScreen.classList.add('hidden');
-                    loginPage.classList.remove('hidden');
-                    loginPage.style.animation = 'fadeIn 0.8s ease';
+                    
+                    // Cek session valid
+                    if (isSessionValid()) {
+                        // Session valid, langsung ke verifikasi
+                        verificationApp.classList.remove('hidden');
+                        verificationApp.style.animation = 'fadeIn 0.8s ease';
+                        updateSessionDisplay();
+                    } else {
+                        // Session tidak valid, tampilkan login
+                        loginPage.classList.remove('hidden');
+                        loginPage.style.animation = 'fadeIn 0.8s ease';
+                    }
                 }, 800);
             }
 
@@ -1369,15 +1510,15 @@
             const errorMessage = document.getElementById('errorMessage');
             const enteredKey = keyInput.value.trim();
             
-            // Validasi format key: AzferFree_ + 23 karakter alfanumerik
             const keyPattern = /^AzferFree_[A-Za-z0-9]{23}$/;
             
             if (keyPattern.test(enteredKey)) {
-                // Key valid, lanjut ke verifikasi
                 errorMessage.classList.remove('show');
                 keyInput.classList.remove('error');
                 
-                // Sembunyikan login, tampilkan verifikasi
+                // SAVE SESSION SAAT LOGIN BERHASIL
+                saveSession();
+                
                 const loginPage = document.getElementById('loginPage');
                 const verificationApp = document.getElementById('verificationApp');
                 
@@ -1389,26 +1530,28 @@
                 keyInput.value = '';
                 keyInput.type = 'password';
                 document.getElementById('keyToggle').textContent = '👁️';
+                
+                // Update session display
+                updateSessionDisplay();
             } else {
-                // Key tidak valid
                 errorMessage.classList.add('show');
                 keyInput.classList.add('error');
                 
-                // Hapus class error setelah animasi
                 setTimeout(() => {
                     keyInput.classList.remove('error');
                 }, 500);
             }
         }
 
-        // Enter key untuk submit
         document.addEventListener('DOMContentLoaded', function() {
             const keyInput = document.getElementById('keyInput');
-            keyInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    verifyKey();
-                }
-            });
+            if (keyInput) {
+                keyInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        verifyKey();
+                    }
+                });
+            }
         });
 
         function goToForgotKey() {
@@ -1457,6 +1600,7 @@
             let phase = 'follow';
             let countdownInterval = null;
             let countdownValue = 15;
+            let verificationCompleted = false;
 
             const dynamicContent = document.getElementById('dynamicContent');
             const progressFill = document.getElementById('progressFill');
@@ -1473,6 +1617,12 @@
                 } else if (phase === 'key') {
                     progressFill.style.width = '100%';
                     stepIndicator.innerHTML = `<span class="active-step">🔓 KEY AKTIF</span>`;
+                    
+                    if (!verificationCompleted) {
+                        verificationCompleted = true;
+                        saveSession();
+                        updateSessionDisplay();
+                    }
                 }
 
                 dynamicContent.innerHTML = '';
@@ -1624,6 +1774,7 @@
                 currentStep = 0;
                 phase = 'follow';
                 countdownValue = 15;
+                verificationCompleted = false;
                 render();
             };
 
