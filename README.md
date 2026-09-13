@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -1078,6 +1079,12 @@
         const KEYS_COLLECTION = "keys";
 
         // ================================================================
+        // KONFIGURASI REDIRECT
+        // ================================================================
+        const CREATE_KEY_URL = "https://link2unlock.com/0bdb2";
+        const PANEL_URL = "panel.html"; // Ganti dengan URL panel cheat kamu
+
+        // ================================================================
         // SESSION MANAGEMENT
         // ================================================================
         const SESSION_KEY = 'azfermodz_verified_session';
@@ -1211,7 +1218,7 @@
         })();
 
         // ================================================================
-        // KEY VALIDATION — VERIFIKASI KE DATABASE
+        // KEY VALIDATION
         // ================================================================
         async function verifyKey() {
             const input = document.getElementById('keyInput');
@@ -1232,7 +1239,6 @@
             btn.innerHTML = '⏳ MEMVERIFIKASI...';
 
             try {
-                // Ambil semua key dari database
                 const res = await fetch(`${DB_BASE}/${KEYS_COLLECTION}`, {
                     headers: {
                         'x-api-key': DB_API_KEY,
@@ -1246,7 +1252,6 @@
                 let data;
                 try { data = JSON.parse(text); } catch { data = text; }
 
-                // Parse array
                 let keys = [];
                 if (Array.isArray(data)) keys = data;
                 else if (data && Array.isArray(data.data)) keys = data.data;
@@ -1255,7 +1260,6 @@
                 console.log('[LOGIN] Total keys in DB:', keys.length);
                 console.log('[LOGIN] Searching for:', enteredKey);
 
-                // Cari key yang cocok
                 const foundKey = keys.find(k => {
                     const dbKey = String(k.key_value || '').trim();
                     return dbKey === enteredKey;
@@ -1265,12 +1269,10 @@
                     throw new Error('Key tidak ditemukan di database');
                 }
 
-                // Cek is_active
                 if (foundKey.is_active === false) {
                     throw new Error('Key sudah dinonaktifkan oleh admin');
                 }
 
-                // Cek expired
                 if (foundKey.expires_at) {
                     const expTime = new Date(foundKey.expires_at).getTime();
                     const now = Date.now();
@@ -1280,7 +1282,6 @@
                     }
                 }
 
-                // ✅ VALID!
                 input.classList.add('valid');
                 saveSession(enteredKey);
 
@@ -1318,7 +1319,6 @@
             input.focus();
         }
 
-        // Tampilkan tombol clear saat ada input
         document.addEventListener('DOMContentLoaded', () => {
             const input = document.getElementById('keyInput');
             const toggle = document.getElementById('keyToggle');
@@ -1333,8 +1333,11 @@
             });
         });
 
+        // ================================================================
+        // REDIRECT KE LINK2UNLOCK
+        // ================================================================
         function goToForgotKey() {
-            window.open('create-key.html', '_blank', 'noopener,noreferrer');
+            window.location.href = CREATE_KEY_URL;
         }
 
         // ================================================================
@@ -1475,9 +1478,7 @@
                 const btn = document.getElementById('redirectButton');
                 if (!btn) return;
                 btn.addEventListener('click', () => {
-                    // Redirect ke panel cheat atau halaman berikutnya
-                    window.location.href = 'panel.html';
-                    // Ganti 'panel.html' dengan URL panel cheat kamu
+                    window.location.href = PANEL_URL;
                 });
             }
 
