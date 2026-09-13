@@ -85,66 +85,12 @@
             box-shadow: 0 0 10px #ffd700, 0 0 20px #cc0000;
         }
 
-        .loading-particle:nth-child(1) {
-            width: 3px;
-            height: 3px;
-            top: 20%;
-            left: 15%;
-            animation-delay: 0s;
-            animation-duration: 6s;
-            background: #ff4444;
-        }
-
-        .loading-particle:nth-child(2) {
-            width: 2px;
-            height: 2px;
-            top: 60%;
-            left: 80%;
-            animation-delay: 1s;
-            animation-duration: 7s;
-            background: #ffd700;
-        }
-
-        .loading-particle:nth-child(3) {
-            width: 4px;
-            height: 4px;
-            top: 40%;
-            left: 30%;
-            animation-delay: 2s;
-            animation-duration: 5s;
-            background: #ff6b6b;
-        }
-
-        .loading-particle:nth-child(4) {
-            width: 2px;
-            height: 2px;
-            top: 70%;
-            left: 50%;
-            animation-delay: 0.5s;
-            animation-duration: 8s;
-            background: #ffed4a;
-        }
-
-        .loading-particle:nth-child(5) {
-            width: 3px;
-            height: 3px;
-            top: 10%;
-            left: 70%;
-            animation-delay: 1.5s;
-            animation-duration: 6.5s;
-            background: #cc0000;
-        }
-
-        .loading-particle:nth-child(6) {
-            width: 5px;
-            height: 5px;
-            top: 80%;
-            left: 20%;
-            animation-delay: 2.5s;
-            animation-duration: 7.5s;
-            background: #ffd700;
-            box-shadow: 0 0 20px #ffd700, 0 0 40px #cc0000;
-        }
+        .loading-particle:nth-child(1) { width: 3px; height: 3px; top: 20%; left: 15%; animation-delay: 0s; animation-duration: 6s; background: #ff4444; }
+        .loading-particle:nth-child(2) { width: 2px; height: 2px; top: 60%; left: 80%; animation-delay: 1s; animation-duration: 7s; background: #ffd700; }
+        .loading-particle:nth-child(3) { width: 4px; height: 4px; top: 40%; left: 30%; animation-delay: 2s; animation-duration: 5s; background: #ff6b6b; }
+        .loading-particle:nth-child(4) { width: 2px; height: 2px; top: 70%; left: 50%; animation-delay: 0.5s; animation-duration: 8s; background: #ffed4a; }
+        .loading-particle:nth-child(5) { width: 3px; height: 3px; top: 10%; left: 70%; animation-delay: 1.5s; animation-duration: 6.5s; background: #cc0000; }
+        .loading-particle:nth-child(6) { width: 5px; height: 5px; top: 80%; left: 20%; animation-delay: 2.5s; animation-duration: 7.5s; background: #ffd700; box-shadow: 0 0 20px #ffd700, 0 0 40px #cc0000; }
 
         .loading-nebula {
             position: absolute;
@@ -157,107 +103,20 @@
             opacity: 0.3;
         }
 
-        .loading-nebula-1 {
-            top: -200px;
-            left: -200px;
-            background: radial-gradient(circle, #8b0000, transparent);
-            animation: nebulaPulse 4s ease-in-out infinite;
-        }
+        .loading-nebula-1 { top: -200px; left: -200px; background: radial-gradient(circle, #8b0000, transparent); animation: nebulaPulse 4s ease-in-out infinite; }
+        .loading-nebula-2 { bottom: -200px; right: -200px; background: radial-gradient(circle, #b8860b, transparent); animation: nebulaPulse 5s ease-in-out infinite; animation-delay: 1s; }
+        .loading-nebula-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, #ffd700, transparent); opacity: 0.1; animation: nebulaPulse 6s ease-in-out infinite; animation-delay: 2s; }
 
-        .loading-nebula-2 {
-            bottom: -200px;
-            right: -200px;
-            background: radial-gradient(circle, #b8860b, transparent);
-            animation: nebulaPulse 5s ease-in-out infinite;
-            animation-delay: 1s;
-        }
+        .orbital-system { position: relative; width: 180px; height: 180px; animation: systemRotate 20s linear infinite; }
+        .orbit { position: absolute; border-radius: 50%; border: 2px solid rgba(255, 215, 0, 0.2); animation: orbitRotate 6s linear infinite; }
+        .orbit-1 { width: 180px; height: 180px; top: 0; left: 0; border-color: rgba(139, 0, 0, 0.4); animation-duration: 8s; }
+        .orbit-2 { width: 140px; height: 140px; top: 20px; left: 20px; border-color: rgba(255, 215, 0, 0.3); animation-duration: 6s; animation-direction: reverse; }
+        .orbit-3 { width: 100px; height: 100px; top: 40px; left: 40px; border-color: rgba(255, 68, 68, 0.4); animation-duration: 4s; }
 
-        .loading-nebula-3 {
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, #ffd700, transparent);
-            opacity: 0.1;
-            animation: nebulaPulse 6s ease-in-out infinite;
-            animation-delay: 2s;
-        }
-
-        .orbital-system {
-            position: relative;
-            width: 180px;
-            height: 180px;
-            animation: systemRotate 20s linear infinite;
-        }
-
-        .orbit {
-            position: absolute;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 215, 0, 0.2);
-            animation: orbitRotate 6s linear infinite;
-        }
-
-        .orbit-1 {
-            width: 180px;
-            height: 180px;
-            top: 0;
-            left: 0;
-            border-color: rgba(139, 0, 0, 0.4);
-            animation-duration: 8s;
-        }
-
-        .orbit-2 {
-            width: 140px;
-            height: 140px;
-            top: 20px;
-            left: 20px;
-            border-color: rgba(255, 215, 0, 0.3);
-            animation-duration: 6s;
-            animation-direction: reverse;
-        }
-
-        .orbit-3 {
-            width: 100px;
-            height: 100px;
-            top: 40px;
-            left: 40px;
-            border-color: rgba(255, 68, 68, 0.4);
-            animation-duration: 4s;
-        }
-
-        .orbital-dot {
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
-            animation: dotOrbit 8s linear infinite;
-        }
-
-        .dot-1 {
-            top: -6px;
-            left: 50%;
-            color: #cc0000;
-            background: #cc0000;
-        }
-
-        .dot-2 {
-            bottom: -6px;
-            right: 20%;
-            color: #ffd700;
-            background: #ffd700;
-            animation-duration: 6s;
-            animation-direction: reverse;
-        }
-
-        .dot-3 {
-            top: 30%;
-            left: -6px;
-            color: #ff4444;
-            background: #ff4444;
-            animation-duration: 4s;
-        }
+        .orbital-dot { position: absolute; width: 12px; height: 12px; border-radius: 50%; box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; animation: dotOrbit 8s linear infinite; }
+        .dot-1 { top: -6px; left: 50%; color: #cc0000; background: #cc0000; }
+        .dot-2 { bottom: -6px; right: 20%; color: #ffd700; background: #ffd700; animation-duration: 6s; animation-direction: reverse; }
+        .dot-3 { top: 30%; left: -6px; color: #ff4444; background: #ff4444; animation-duration: 4s; }
 
         .core {
             position: absolute;
@@ -284,22 +143,9 @@
             animation: coreRing 3s ease-in-out infinite;
         }
 
-        .energy-wave {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            animation: waveExpand 3s ease-out infinite;
-        }
-
-        .wave-2 {
-            animation-delay: 1s;
-        }
-
-        .wave-3 {
-            animation-delay: 2s;
-        }
+        .energy-wave { position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid rgba(255, 215, 0, 0.3); animation: waveExpand 3s ease-out infinite; }
+        .wave-2 { animation-delay: 1s; }
+        .wave-3 { animation-delay: 2s; }
 
         .loading-text {
             color: #ffd700;
@@ -312,11 +158,7 @@
             text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(204, 0, 0, 0.5);
         }
 
-        .loading-text span {
-            display: inline-block;
-            animation: bounceText 2s ease-in-out infinite;
-        }
-
+        .loading-text span { display: inline-block; animation: bounceText 2s ease-in-out infinite; }
         .loading-text span:nth-child(1) { animation-delay: 0s; }
         .loading-text span:nth-child(2) { animation-delay: 0.1s; }
         .loading-text span:nth-child(3) { animation-delay: 0.2s; }
@@ -382,88 +224,40 @@
             letter-spacing: 2px;
         }
 
-        @keyframes orbitRotate {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes systemRotate {
-            to { transform: rotate(360deg); }
-        }
-
-        @keyframes dotOrbit {
-            to { transform: rotate(360deg); }
-        }
+        @keyframes orbitRotate { to { transform: rotate(360deg); } }
+        @keyframes systemRotate { to { transform: rotate(360deg); } }
+        @keyframes dotOrbit { to { transform: rotate(360deg); } }
 
         @keyframes corePulse {
-            0%, 100% {
-                transform: translate(-50%, -50%) scale(1);
-                box-shadow: 0 0 30px #ffd700, 0 0 60px #cc0000, 0 0 90px #8b0000;
-            }
-            50% {
-                transform: translate(-50%, -50%) scale(1.2);
-                box-shadow: 0 0 50px #ffd700, 0 0 80px #cc0000, 0 0 120px #8b0000, 0 0 150px #ff4444;
-            }
+            0%, 100% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 30px #ffd700, 0 0 60px #cc0000, 0 0 90px #8b0000; }
+            50% { transform: translate(-50%, -50%) scale(1.2); box-shadow: 0 0 50px #ffd700, 0 0 80px #cc0000, 0 0 120px #8b0000, 0 0 150px #ff4444; }
         }
 
         @keyframes coreRing {
-            0%, 100% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            50% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.5); opacity: 0; }
         }
 
         @keyframes waveExpand {
-            0% {
-                transform: scale(1);
-                opacity: 0.5;
-            }
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(2); opacity: 0; }
         }
 
         @keyframes floatParticle {
-            0%, 100% {
-                transform: translateY(0) translateX(0);
-                opacity: 0.3;
-            }
-            25% {
-                transform: translateY(-20px) translateX(10px);
-                opacity: 0.8;
-            }
-            50% {
-                transform: translateY(-10px) translateX(-15px);
-                opacity: 0.5;
-            }
-            75% {
-                transform: translateY(-30px) translateX(20px);
-                opacity: 0.7;
-            }
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.8; }
+            50% { transform: translateY(-10px) translateX(-15px); opacity: 0.5; }
+            75% { transform: translateY(-30px) translateX(20px); opacity: 0.7; }
         }
 
         @keyframes nebulaPulse {
-            0%, 100% {
-                opacity: 0.2;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.4;
-                transform: scale(1.1);
-            }
+            0%, 100% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(1.1); }
         }
 
         @keyframes textGlow {
-            0%, 100% {
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(204, 0, 0, 0.5);
-            }
+            0%, 100% { text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+            50% { text-shadow: 0 0 20px rgba(255, 215, 0, 0.8), 0 0 40px rgba(204, 0, 0, 0.5); }
         }
 
         @keyframes bounceText {
@@ -501,10 +295,7 @@
             background: linear-gradient(165deg, #1a0a0a 0%, #0d0505 30%, #1a0a0a 70%, #0a0000 100%);
             border: 2px solid #b8860b;
             border-radius: 40px;
-            box-shadow: 
-                0 30px 60px -12px rgba(139, 0, 0, 0.8),
-                0 0 0 1px rgba(255, 215, 0, 0.3) inset,
-                0 0 30px rgba(184, 134, 11, 0.3);
+            box-shadow: 0 30px 60px -12px rgba(139, 0, 0, 0.8), 0 0 0 1px rgba(255, 215, 0, 0.3) inset, 0 0 30px rgba(184, 134, 11, 0.3);
             width: 100%;
             max-width: 480px;
             padding: 40px 30px;
@@ -554,9 +345,7 @@
             letter-spacing: 1px;
         }
 
-        .key-input-group {
-            margin-bottom: 20px;
-        }
+        .key-input-group { margin-bottom: 20px; }
 
         .key-input-label {
             color: #ffd700;
@@ -593,10 +382,7 @@
             box-shadow: 0 0 20px rgba(255, 215, 0, 0.3), 0 0 40px rgba(139, 0, 0, 0.3);
         }
 
-        .key-input::placeholder {
-            color: #886666;
-            font-weight: 400;
-        }
+        .key-input::placeholder { color: #886666; font-weight: 400; }
 
         .key-input.error {
             border-color: #ff4444;
@@ -608,6 +394,11 @@
             0%, 100% { transform: translateX(0); }
             25% { transform: translateX(-10px); }
             75% { transform: translateX(10px); }
+        }
+
+        .key-input.valid {
+            border-color: #00ff88;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
         }
 
         .key-toggle {
@@ -622,9 +413,7 @@
             transition: all 0.3s;
         }
 
-        .key-toggle:hover {
-            color: #ffd700;
-        }
+        .key-toggle:hover { color: #ffd700; }
 
         .login-button {
             background: linear-gradient(135deg, #8b0000 0%, #cc0000 50%, #8b0000 100%);
@@ -665,15 +454,14 @@
             100% { transform: translateX(100%) rotate(45deg); }
         }
 
-        .login-button:hover {
+        .login-button:hover:not(:disabled) {
             transform: scale(1.02);
             background: linear-gradient(135deg, #cc0000 0%, #ff1a1a 50%, #cc0000 100%);
             box-shadow: 0 18px 40px -6px rgba(204, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.4);
         }
 
-        .login-button:active {
-            transform: scale(0.98);
-        }
+        .login-button:active:not(:disabled) { transform: scale(0.98); }
+        .login-button:disabled { opacity: 0.6; cursor: not-allowed; }
 
         .forgot-key {
             display: block;
@@ -690,10 +478,7 @@
             padding: 8px;
         }
 
-        .forgot-key:hover {
-            color: #ffd700;
-            opacity: 1;
-        }
+        .forgot-key:hover { color: #ffd700; opacity: 1; }
 
         .error-message {
             color: #ff4444;
@@ -702,6 +487,10 @@
             margin-top: 12px;
             display: none;
             letter-spacing: 0.5px;
+            padding: 10px;
+            border-radius: 10px;
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid rgba(255, 68, 68, 0.3);
         }
 
         .error-message.show {
@@ -721,10 +510,6 @@
             --emas-gelap: #8b6914;
             --emas-sinar: #ffed4a;
             --hitam-pekat: #0a0a0a;
-            --hitam-karbon: #111111;
-            --hitam-abu: #1a1a1a;
-            --putih-bersih: #ffffff;
-            --putih-abu: #e0e0e0;
             --text-emas: #ffcc00;
             --text-merah: #ff4444;
         }
@@ -733,10 +518,7 @@
             background: linear-gradient(165deg, #1a0a0a 0%, #0d0505 30%, #1a0a0a 70%, #0a0000 100%);
             border: 2px solid var(--emas-tua);
             border-radius: 40px;
-            box-shadow: 
-                0 30px 60px -12px rgba(139, 0, 0, 0.8),
-                0 0 0 1px rgba(255, 215, 0, 0.3) inset,
-                0 0 30px rgba(184, 134, 11, 0.3);
+            box-shadow: 0 30px 60px -12px rgba(139, 0, 0, 0.8), 0 0 0 1px rgba(255, 215, 0, 0.3) inset, 0 0 30px rgba(184, 134, 11, 0.3);
             width: 100%;
             max-width: 580px;
             padding: 32px 26px 36px;
@@ -930,25 +712,15 @@
             animation: button-shine 3s infinite;
         }
 
-        .follow-button:hover {
+        .follow-button:hover:not(:disabled) {
             transform: scale(1.05);
             background: linear-gradient(135deg, #cc0000 0%, #ff1a1a 50%, #cc0000 100%);
             box-shadow: 0 18px 40px -6px rgba(204, 0, 0, 0.9), 0 0 40px rgba(255, 215, 0, 0.4);
             border-color: var(--emas-sinar);
         }
 
-        .follow-button:active {
-            transform: scale(0.95);
-        }
-
-        .follow-button:disabled {
-            background: #2a1a1a;
-            color: #886666;
-            box-shadow: none;
-            cursor: not-allowed;
-            transform: none;
-            border-color: #5a3a3a;
-        }
+        .follow-button:active:not(:disabled) { transform: scale(0.95); }
+        .follow-button:disabled { background: #2a1a1a; color: #886666; box-shadow: none; cursor: not-allowed; transform: none; border-color: #5a3a3a; }
 
         .waiting-panel {
             background: linear-gradient(145deg, #1a0505 0%, #0d0202 100%);
@@ -984,10 +756,7 @@
             padding: 28px 20px;
             margin-top: 18px;
             border: 2px solid var(--emas-muda);
-            box-shadow: 
-                0 0 40px rgba(255, 215, 0, 0.3),
-                0 0 60px rgba(139, 0, 0, 0.5),
-                0 0 0 1px rgba(255, 215, 0, 0.4) inset;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.3), 0 0 60px rgba(139, 0, 0, 0.5), 0 0 0 1px rgba(255, 215, 0, 0.4) inset;
             position: relative;
             overflow: hidden;
             animation: key-appear 0.6s ease-out;
@@ -1050,10 +819,7 @@
             padding: 16px 12px;
             border-radius: 20px;
             letter-spacing: 1px;
-            text-shadow: 
-                0 0 15px rgba(255, 215, 0, 0.8),
-                0 0 30px rgba(255, 0, 0, 0.5),
-                0 0 45px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 30px rgba(255, 0, 0, 0.5), 0 0 45px rgba(255, 215, 0, 0.3);
             user-select: all;
             -webkit-user-select: all;
             position: relative;
@@ -1121,9 +887,7 @@
             transform: translateY(-2px);
         }
 
-        .copy-button:active {
-            transform: scale(0.95);
-        }
+        .copy-button:active { transform: scale(0.95); }
 
         .reset-link {
             color: #cc9999;
@@ -1136,10 +900,7 @@
             transition: all 0.3s;
         }
 
-        .reset-link:hover {
-            opacity: 1;
-            color: var(--emas-muda);
-        }
+        .reset-link:hover { opacity: 1; color: var(--emas-muda); }
 
         .security-badge {
             text-align: center;
@@ -1191,9 +952,7 @@
             font-size: 0.75rem;
         }
 
-        .hidden {
-            display: none !important;
-        }
+        .hidden { display: none !important; }
 
         @media (max-width: 400px) {
             .verification-card { padding: 20px 14px; }
@@ -1229,20 +988,12 @@
 
         <div class="loading-container">
             <div class="orbital-system">
-                <div class="orbit orbit-1">
-                    <div class="orbital-dot dot-1"></div>
-                </div>
-                <div class="orbit orbit-2">
-                    <div class="orbital-dot dot-2"></div>
-                </div>
-                <div class="orbit orbit-3">
-                    <div class="orbital-dot dot-3"></div>
-                </div>
-                
+                <div class="orbit orbit-1"><div class="orbital-dot dot-1"></div></div>
+                <div class="orbit orbit-2"><div class="orbital-dot dot-2"></div></div>
+                <div class="orbit orbit-3"><div class="orbital-dot dot-3"></div></div>
                 <div class="energy-wave"></div>
                 <div class="energy-wave wave-2"></div>
                 <div class="energy-wave wave-3"></div>
-                
                 <div class="core"></div>
             </div>
 
@@ -1269,14 +1020,14 @@
             <div class="key-input-label">Key Akses</div>
             <div class="key-input-wrapper">
                 <input 
-                    type="password" 
+                    type="text" 
                     class="key-input" 
                     id="keyInput" 
-                    placeholder="AzferFree_XXXXXXXXXXXXXXXXXXXXXXX"
+                    placeholder="Masukkan key Anda"
                     autocomplete="off"
                     spellcheck="false"
                 />
-                <button class="key-toggle" id="keyToggle" onclick="toggleKeyVisibility()">👁️</button>
+                <button class="key-toggle" id="keyToggle" onclick="clearKeyInput()" style="display:none;">✖</button>
             </div>
         </div>
         
@@ -1289,7 +1040,7 @@
         </div>
         
         <button class="forgot-key" onclick="goToForgotKey()">
-            🔑 Lupa Key? Klik disini
+            🔑 Buat Key Baru Disini
         </button>
     </div>
 
@@ -1318,13 +1069,24 @@
     </div>
 
     <script>
-        // ==================== LOCALSTORAGE SESSION MANAGEMENT ====================
-        const SESSION_KEY = 'azfermodz_verified_session';
-        const SESSION_DURATION = 24 * 60 * 60 * 1000; // 24 jam
+        // ================================================================
+        // KONFIGURASI DATABASE
+        // ================================================================
+        const DB_API_KEY = "sk_34701ad7da358959a51880e914c5515d6947c583dc37cb90";
+        const DB_HOST = "https://free-database-fazxy.netlify.app";
+        const DB_BASE = DB_HOST + "/api/v1";
+        const KEYS_COLLECTION = "keys";
 
-        function saveSession() {
+        // ================================================================
+        // SESSION MANAGEMENT
+        // ================================================================
+        const SESSION_KEY = 'azfermodz_verified_session';
+        const SESSION_DURATION = 24 * 60 * 60 * 1000;
+
+        function saveSession(keyUsed) {
             const sessionData = {
                 verified: true,
+                keyUsed: keyUsed,
                 timestamp: Date.now(),
                 expiresAt: Date.now() + SESSION_DURATION
             };
@@ -1332,96 +1094,72 @@
         }
 
         function getSession() {
-            const sessionData = localStorage.getItem(SESSION_KEY);
-            if (!sessionData) return null;
-            
-            try {
-                const parsed = JSON.parse(sessionData);
-                return parsed;
-            } catch (e) {
-                return null;
-            }
+            const raw = localStorage.getItem(SESSION_KEY);
+            if (!raw) return null;
+            try { return JSON.parse(raw); } catch { return null; }
         }
 
         function isSessionValid() {
             const session = getSession();
             if (!session) return false;
-            
-            if (Date.now() > session.expiresAt) {
-                clearSession();
-                return false;
-            }
-            
+            if (Date.now() > session.expiresAt) { clearSession(); return false; }
             return session.verified === true;
         }
 
-        function clearSession() {
-            localStorage.removeItem(SESSION_KEY);
-        }
+        function clearSession() { localStorage.removeItem(SESSION_KEY); }
 
         function getSessionRemainingTime() {
             const session = getSession();
             if (!session) return 0;
-            
             const remaining = session.expiresAt - Date.now();
             return remaining > 0 ? remaining : 0;
         }
 
-        function formatRemainingTime(milliseconds) {
-            const totalSeconds = Math.floor(milliseconds / 1000);
-            const hours = Math.floor(totalSeconds / 3600);
-            const minutes = Math.floor((totalSeconds % 3600) / 60);
-            const seconds = totalSeconds % 60;
-            
+        function formatRemainingTime(ms) {
+            const totalSec = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSec / 3600);
+            const minutes = Math.floor((totalSec % 3600) / 60);
+            const seconds = totalSec % 60;
             return `${hours}j ${minutes}m ${seconds}d`;
         }
 
         function updateSessionDisplay() {
-            const sessionTimeElement = document.getElementById('sessionTime');
-            if (!sessionTimeElement) return;
-            
-            const remaining = getSessionRemainingTime();
-            if (remaining > 0) {
-                sessionTimeElement.textContent = `• ${formatRemainingTime(remaining)}`;
-            }
+            const el = document.getElementById('sessionTime');
+            if (!el) return;
+            const rem = getSessionRemainingTime();
+            if (rem > 0) el.textContent = `• ${formatRemainingTime(rem)}`;
         }
-
         setInterval(updateSessionDisplay, 1000);
 
+        // Auto logout saat session expired
         setInterval(() => {
             if (!isSessionValid()) {
-                const loginPage = document.getElementById('loginPage');
-                const verificationApp = document.getElementById('verificationApp');
-                
-                if (verificationApp && !verificationApp.classList.contains('hidden')) {
-                    verificationApp.classList.add('hidden');
-                    loginPage.classList.remove('hidden');
-                    loginPage.style.animation = 'fadeIn 0.8s ease';
-                    
-                    if (window.resetVerification) {
-                        window.resetVerification();
-                    }
+                const lp = document.getElementById('loginPage');
+                const va = document.getElementById('verificationApp');
+                if (va && !va.classList.contains('hidden')) {
+                    va.classList.add('hidden');
+                    lp.classList.remove('hidden');
+                    lp.style.animation = 'fadeIn 0.8s ease';
+                    if (window.resetVerification) window.resetVerification();
                 }
             }
         }, 1000);
 
-        // ==================== LOADING SCREEN LOGIC ====================
+        // ================================================================
+        // LOADING SCREEN
+        // ================================================================
         (function() {
-            const loadingConfig = {
-                totalDuration: 5000,
-                updateInterval: 100
-            };
+            const cfg = { totalDuration: 5000, updateInterval: 100 };
+            let pct = 0;
+            const start = Date.now();
+            const pctEl = document.getElementById('loadingPercentage');
+            const barEl = document.getElementById('loadingProgressBar');
+            const statusEl = document.getElementById('loadingStatus');
+            const screenEl = document.getElementById('loadingScreen');
+            const loginEl = document.getElementById('loginPage');
+            const verEl = document.getElementById('verificationApp');
 
-            let loadingPercentage = 0;
-            const loadingStartTime = Date.now();
-            const loadingPercentageElement = document.getElementById('loadingPercentage');
-            const loadingProgressBar = document.getElementById('loadingProgressBar');
-            const loadingStatus = document.getElementById('loadingStatus');
-            const loadingScreen = document.getElementById('loadingScreen');
-            const loginPage = document.getElementById('loginPage');
-            const verificationApp = document.getElementById('verificationApp');
-
-            const loadingStatusMessages = [
+            const msgs = [
                 'Memuat Sistem...',
                 'Menginisialisasi Modul...',
                 'Menghubungkan ke Server...',
@@ -1430,135 +1168,178 @@
                 'Hampir Selesai...'
             ];
 
-            function updateLoadingStatus() {
-                const statusIndex = Math.floor(loadingPercentage / 20);
-                if (statusIndex < loadingStatusMessages.length) {
-                    loadingStatus.textContent = loadingStatusMessages[statusIndex];
-                }
+            function updateStatus() {
+                const idx = Math.floor(pct / 20);
+                if (idx < msgs.length) statusEl.textContent = msgs[idx];
             }
 
-            function updateLoading() {
-                const elapsedTime = Date.now() - loadingStartTime;
-                const progress = elapsedTime / loadingConfig.totalDuration;
-                
-                if (loadingPercentage < 100) {
-                    const targetPercentage = Math.min(progress * 100, 99);
-                    
-                    if (loadingPercentage < targetPercentage) {
-                        loadingPercentage = Math.min(loadingPercentage + Math.random() * 2 + 0.5, targetPercentage);
-                    }
-                    
-                    loadingPercentageElement.textContent = Math.floor(loadingPercentage) + '%';
-                    loadingProgressBar.style.width = loadingPercentage + '%';
-                    updateLoadingStatus();
-                    
-                    setTimeout(updateLoading, loadingConfig.updateInterval);
+            function tick() {
+                const elapsed = Date.now() - start;
+                const progress = elapsed / cfg.totalDuration;
+                if (pct < 100) {
+                    const target = Math.min(progress * 100, 99);
+                    if (pct < target) pct = Math.min(pct + Math.random() * 2 + 0.5, target);
+                    pctEl.textContent = Math.floor(pct) + '%';
+                    barEl.style.width = pct + '%';
+                    updateStatus();
+                    setTimeout(tick, cfg.updateInterval);
                 } else {
-                    finishLoading();
+                    finish();
                 }
             }
 
-            function finishLoading() {
-                loadingPercentage = 100;
-                loadingPercentageElement.textContent = '100%';
-                loadingProgressBar.style.width = '100%';
-                loadingStatus.textContent = 'Sistem Siap!';
-                
+            function finish() {
+                pct = 100;
+                pctEl.textContent = '100%';
+                barEl.style.width = '100%';
+                statusEl.textContent = 'Sistem Siap!';
                 setTimeout(() => {
-                    loadingScreen.classList.add('hidden');
-                    
-                    // Cek session valid
+                    screenEl.classList.add('hidden');
                     if (isSessionValid()) {
-                        // Session valid, langsung ke verifikasi
-                        verificationApp.classList.remove('hidden');
-                        verificationApp.style.animation = 'fadeIn 0.8s ease';
+                        verEl.classList.remove('hidden');
+                        verEl.style.animation = 'fadeIn 0.8s ease';
                         updateSessionDisplay();
                     } else {
-                        // Session tidak valid, tampilkan login
-                        loginPage.classList.remove('hidden');
-                        loginPage.style.animation = 'fadeIn 0.8s ease';
+                        loginEl.classList.remove('hidden');
+                        loginEl.style.animation = 'fadeIn 0.8s ease';
                     }
                 }, 800);
             }
 
-            updateLoading();
-
-            setTimeout(() => {
-                if (loadingPercentage < 100) {
-                    loadingPercentage = 100;
-                    finishLoading();
-                }
-            }, loadingConfig.totalDuration + 3000);
+            tick();
+            setTimeout(() => { if (pct < 100) { pct = 100; finish(); } }, cfg.totalDuration + 3000);
         })();
 
-        // ==================== LOGIN KEY LOGIC ====================
-        function toggleKeyVisibility() {
-            const keyInput = document.getElementById('keyInput');
-            const keyToggle = document.getElementById('keyToggle');
-            
-            if (keyInput.type === 'password') {
-                keyInput.type = 'text';
-                keyToggle.textContent = '🙈';
-            } else {
-                keyInput.type = 'password';
-                keyToggle.textContent = '👁️';
-            }
-        }
+        // ================================================================
+        // KEY VALIDATION — VERIFIKASI KE DATABASE
+        // ================================================================
+        async function verifyKey() {
+            const input = document.getElementById('keyInput');
+            const errEl = document.getElementById('errorMessage');
+            const btn = document.getElementById('loginButton');
+            const enteredKey = input.value.trim();
 
-        function verifyKey() {
-            const keyInput = document.getElementById('keyInput');
-            const errorMessage = document.getElementById('errorMessage');
-            const enteredKey = keyInput.value.trim();
-            
-            const keyPattern = /^AzferFree_[A-Za-z0-9]{23}$/;
-            
-            if (keyPattern.test(enteredKey)) {
-                errorMessage.classList.remove('show');
-                keyInput.classList.remove('error');
-                
-                // SAVE SESSION SAAT LOGIN BERHASIL
-                saveSession();
-                
-                const loginPage = document.getElementById('loginPage');
-                const verificationApp = document.getElementById('verificationApp');
-                
-                loginPage.classList.add('hidden');
-                verificationApp.classList.remove('hidden');
-                verificationApp.style.animation = 'fadeIn 0.8s ease';
-                
-                // Reset input
-                keyInput.value = '';
-                keyInput.type = 'password';
-                document.getElementById('keyToggle').textContent = '👁️';
-                
-                // Update session display
-                updateSessionDisplay();
-            } else {
-                errorMessage.classList.add('show');
-                keyInput.classList.add('error');
-                
-                setTimeout(() => {
-                    keyInput.classList.remove('error');
-                }, 500);
-            }
-        }
+            errEl.classList.remove('show');
+            input.classList.remove('error', 'valid');
 
-        document.addEventListener('DOMContentLoaded', function() {
-            const keyInput = document.getElementById('keyInput');
-            if (keyInput) {
-                keyInput.addEventListener('keypress', function(e) {
-                    if (e.key === 'Enter') {
-                        verifyKey();
+            if (!enteredKey) {
+                showError('❌ Masukkan key terlebih dahulu!');
+                input.classList.add('error');
+                return;
+            }
+
+            btn.disabled = true;
+            btn.innerHTML = '⏳ MEMVERIFIKASI...';
+
+            try {
+                // Ambil semua key dari database
+                const res = await fetch(`${DB_BASE}/${KEYS_COLLECTION}`, {
+                    headers: {
+                        'x-api-key': DB_API_KEY,
+                        'Accept': 'application/json'
                     }
                 });
+
+                if (!res.ok) throw new Error(`Database error (${res.status})`);
+
+                const text = await res.text();
+                let data;
+                try { data = JSON.parse(text); } catch { data = text; }
+
+                // Parse array
+                let keys = [];
+                if (Array.isArray(data)) keys = data;
+                else if (data && Array.isArray(data.data)) keys = data.data;
+                else if (data && Array.isArray(data.items)) keys = data.items;
+
+                console.log('[LOGIN] Total keys in DB:', keys.length);
+                console.log('[LOGIN] Searching for:', enteredKey);
+
+                // Cari key yang cocok
+                const foundKey = keys.find(k => {
+                    const dbKey = String(k.key_value || '').trim();
+                    return dbKey === enteredKey;
+                });
+
+                if (!foundKey) {
+                    throw new Error('Key tidak ditemukan di database');
+                }
+
+                // Cek is_active
+                if (foundKey.is_active === false) {
+                    throw new Error('Key sudah dinonaktifkan oleh admin');
+                }
+
+                // Cek expired
+                if (foundKey.expires_at) {
+                    const expTime = new Date(foundKey.expires_at).getTime();
+                    const now = Date.now();
+                    if (expTime < now) {
+                        const diffMins = Math.floor((now - expTime) / 60000);
+                        throw new Error(`Key sudah expired ${diffMins} menit lalu`);
+                    }
+                }
+
+                // ✅ VALID!
+                input.classList.add('valid');
+                saveSession(enteredKey);
+
+                const loginPage = document.getElementById('loginPage');
+                const verApp = document.getElementById('verificationApp');
+                loginPage.classList.add('hidden');
+                verApp.classList.remove('hidden');
+                verApp.style.animation = 'fadeIn 0.8s ease';
+
+                input.value = '';
+                updateSessionDisplay();
+
+            } catch (err) {
+                console.error('[LOGIN ERROR]', err);
+                showError('❌ ' + err.message);
+                input.classList.add('error');
+                setTimeout(() => input.classList.remove('error'), 800);
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '🔓 MASUK';
             }
+        }
+
+        function showError(msg) {
+            const el = document.getElementById('errorMessage');
+            el.textContent = msg;
+            el.classList.add('show');
+        }
+
+        function clearKeyInput() {
+            const input = document.getElementById('keyInput');
+            input.value = '';
+            input.classList.remove('error', 'valid');
+            document.getElementById('keyToggle').style.display = 'none';
+            input.focus();
+        }
+
+        // Tampilkan tombol clear saat ada input
+        document.addEventListener('DOMContentLoaded', () => {
+            const input = document.getElementById('keyInput');
+            const toggle = document.getElementById('keyToggle');
+            
+            input.addEventListener('input', () => {
+                toggle.style.display = input.value.length > 0 ? 'block' : 'none';
+                input.classList.remove('error');
+            });
+
+            input.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') verifyKey();
+            });
         });
 
         function goToForgotKey() {
-            window.open('https://link2unlock.com/0bdb2', '_blank', 'noopener,noreferrer');
+            window.open('create-key.html', '_blank', 'noopener,noreferrer');
         }
 
-        // ==================== VERIFICATION LOGIC ====================
+        // ================================================================
+        // VERIFICATION FLOW
+        // ================================================================
         (function() {
             const communities = [
                 { name: "KOMUNITAS OFFICIAL 1", url: "https://whatsapp.com/channel/0029Vb8STPh0VycODHqyol10", icon: "📢" },
@@ -1569,126 +1350,92 @@
                 { name: "KOMUNITAS OFFICIAL 6", url: "https://whatsapp.com/channel/0029VbDBArY9MF8uLpmviF1S", icon: "🏆" }
             ];
 
-            function getAvailableKey() {
-                const now = new Date();
-                
-                const freeKeyExpiry = new Date('2026-09-05T23:59:59');
-                const codeKeyExpiry = new Date('2026-11-26T23:59:59');
-                
-                if (now <= freeKeyExpiry) {
-                    return {
-                        key: 'AzferFree',
-                        expiry: '5 September 2026',
-                        isActive: true
-                    };
-                } else if (now <= codeKeyExpiry) {
-                    return {
-                        key: 'AzferCode',
-                        expiry: '26 November 2026',
-                        isActive: true
-                    };
-                } else {
-                    return {
-                        key: 'EXPIRED',
-                        expiry: 'Semua key telah kadaluarsa',
-                        isActive: false
-                    };
-                }
-            }
-
             let currentStep = 0;
             let phase = 'follow';
             let countdownInterval = null;
             let countdownValue = 15;
             let verificationCompleted = false;
 
-            const dynamicContent = document.getElementById('dynamicContent');
-            const progressFill = document.getElementById('progressFill');
-            const stepIndicator = document.getElementById('stepIndicator');
+            const dyn = document.getElementById('dynamicContent');
+            const fill = document.getElementById('progressFill');
+            const step = document.getElementById('stepIndicator');
 
             function render() {
                 if (phase === 'follow') {
-                    const progressPercent = (currentStep / communities.length) * 100;
-                    progressFill.style.width = `${progressPercent}%`;
-                    stepIndicator.innerHTML = `<span class="active-step">${currentStep}/${communities.length} FOLLOW</span>`;
+                    const p = (currentStep / communities.length) * 100;
+                    fill.style.width = p + '%';
+                    step.innerHTML = `<span class="active-step">${currentStep}/${communities.length} FOLLOW</span>`;
                 } else if (phase === 'countdown') {
-                    progressFill.style.width = '100%';
-                    stepIndicator.innerHTML = `<span class="active-step">✅ 6/6 FOLLOW • TUNGGU VERIFIKASI</span>`;
+                    fill.style.width = '100%';
+                    step.innerHTML = `<span class="active-step">✅ 6/6 FOLLOW • TUNGGU VERIFIKASI</span>`;
                 } else if (phase === 'key') {
-                    progressFill.style.width = '100%';
-                    stepIndicator.innerHTML = `<span class="active-step">🔓 KEY AKTIF</span>`;
-                    
+                    fill.style.width = '100%';
+                    step.innerHTML = `<span class="active-step">🔓 AKSES DIBERIKAN</span>`;
                     if (!verificationCompleted) {
                         verificationCompleted = true;
-                        saveSession();
+                        const session = getSession();
+                        saveSession(session ? session.keyUsed : 'unknown');
                         updateSessionDisplay();
                     }
                 }
 
-                dynamicContent.innerHTML = '';
+                dyn.innerHTML = '';
 
                 if (phase === 'follow') {
-                    if (currentStep >= communities.length) {
-                        startCountdownPhase();
-                        return;
-                    }
-                    const comm = communities[currentStep];
-                    const followBox = document.createElement('div');
-                    followBox.className = 'community-box';
-                    followBox.innerHTML = `
-                        <div class="channel-icon">${comm.icon}</div>
-                        <div class="community-name">${comm.name}</div>
-                        <div class="community-url">${comm.url}</div>
+                    if (currentStep >= communities.length) { startCountdownPhase(); return; }
+                    const c = communities[currentStep];
+                    const box = document.createElement('div');
+                    box.className = 'community-box';
+                    box.innerHTML = `
+                        <div class="channel-icon">${c.icon}</div>
+                        <div class="community-name">${c.name}</div>
+                        <div class="community-url">${c.url}</div>
                         <button class="follow-button" id="followButton">
                             ✅ FOLLOW SEKARANG
                         </button>
                         <div style="margin-top: 12px; font-size: 0.8rem; color: #cc9999;">Langkah ${currentStep+1} dari ${communities.length}</div>
                     `;
-                    dynamicContent.appendChild(followBox);
+                    dyn.appendChild(box);
                     attachFollowHandler();
-                } 
-                else if (phase === 'countdown') {
-                    const waitPanel = document.createElement('div');
-                    waitPanel.className = 'waiting-panel';
-                    waitPanel.innerHTML = `
+                } else if (phase === 'countdown') {
+                    const box = document.createElement('div');
+                    box.className = 'waiting-panel';
+                    box.innerHTML = `
                         <div style="font-size: 1.4rem; font-weight: bold; color: #ffd700;">⏳ VERIFIKASI BERHASIL</div>
-                        <div style="margin: 8px 0; color: #cc9999;">Tunggu <strong>${countdownValue}</strong> detik untuk mendapatkan key</div>
+                        <div style="margin: 8px 0; color: #cc9999;">Tunggu <strong>${countdownValue}</strong> detik untuk melanjutkan</div>
                         <div class="countdown-number" id="countdownDisplay">${countdownValue}</div>
-                        <div style="color: #886666;">Mengamankan key hologram...</div>
+                        <div style="color: #886666;">Mengamankan akses...</div>
                     `;
-                    dynamicContent.appendChild(waitPanel);
+                    dyn.appendChild(box);
                     startCountdown();
-                } 
-                else if (phase === 'key') {
-                    const availableKey = getAvailableKey();
-                    const keyPanel = document.createElement('div');
-                    keyPanel.className = 'key-box';
-                    keyPanel.innerHTML = `
-                        <div class="key-label">🔑 KEY AKTIF ANDA</div>
-                        <div class="key-value" id="keyValue">${availableKey.key}</div>
-                        <div class="key-expiry ${availableKey.isActive ? 'active' : ''}">
-                            📅 Berlaku sampai: ${availableKey.expiry}
+                } else if (phase === 'key') {
+                    const box = document.createElement('div');
+                    box.className = 'key-box';
+                    box.innerHTML = `
+                        <div class="key-label">✅ AKSES DIBERIKAN</div>
+                        <div style="color: #ddd; font-size: 1rem; margin-top: 12px; line-height: 1.6;">
+                            Verifikasi berhasil! Kamu sekarang memiliki akses penuh.
                         </div>
-                        <button class="copy-button" id="copyKeyButton">
-                            📋 SALIN KEY
+                        <div class="key-expiry active" style="margin-top: 20px;">
+                            🔓 SESSION AKTIF 24 JAM
+                        </div>
+                        <button class="copy-button" id="redirectButton">
+                            🚀 MASUK KE PANEL
                         </button>
                     `;
-                    dynamicContent.appendChild(keyPanel);
-                    attachCopyHandler();
+                    dyn.appendChild(box);
+                    attachRedirectHandler();
                 }
             }
 
             function attachFollowHandler() {
-                const followBtn = document.getElementById('followButton');
-                if (!followBtn) return;
-                followBtn.addEventListener('click', function(e) {
+                const btn = document.getElementById('followButton');
+                if (!btn) return;
+                btn.addEventListener('click', (e) => {
                     e.preventDefault();
-                    const comm = communities[currentStep];
-                    window.open(comm.url, '_blank', 'noopener,noreferrer');
-                    
-                    followBtn.disabled = true;
-                    followBtn.textContent = '⏳ MEMERIKSA...';
-                    
+                    window.open(communities[currentStep].url, '_blank', 'noopener,noreferrer');
+                    btn.disabled = true;
+                    btn.textContent = '⏳ MEMERIKSA...';
                     setTimeout(() => {
                         if (currentStep < communities.length - 1) {
                             currentStep++;
@@ -1712,11 +1459,9 @@
                 if (countdownInterval) clearInterval(countdownInterval);
                 const display = document.getElementById('countdownDisplay');
                 if (!display) return;
-                
                 countdownInterval = setInterval(() => {
                     countdownValue--;
                     if (display) display.textContent = countdownValue;
-                    
                     if (countdownValue <= 0) {
                         clearInterval(countdownInterval);
                         countdownInterval = null;
@@ -1726,51 +1471,18 @@
                 }, 1000);
             }
 
-            function attachCopyHandler() {
-                const copyBtn = document.getElementById('copyKeyButton');
-                if (!copyBtn) return;
-                copyBtn.addEventListener('click', async () => {
-                    const availableKey = getAvailableKey();
-                    const keyText = availableKey.key;
-                    
-                    if (!availableKey.isActive) {
-                        copyBtn.textContent = '❌ KEY EXPIRED';
-                        setTimeout(() => {
-                            copyBtn.innerHTML = '📋 SALIN KEY';
-                        }, 2000);
-                        return;
-                    }
-                    
-                    try {
-                        await navigator.clipboard.writeText(keyText);
-                        copyBtn.textContent = '✅ TERSALIN!';
-                        copyBtn.style.background = 'linear-gradient(135deg, #1a3a1a, #0d2a0d)';
-                        copyBtn.style.borderColor = '#00cc00';
-                        setTimeout(() => {
-                            copyBtn.innerHTML = '📋 SALIN KEY';
-                            copyBtn.style.background = 'linear-gradient(135deg, #1a0a0a 0%, #2a1a1a 100%)';
-                            copyBtn.style.borderColor = 'var(--emas-muda)';
-                        }, 2000);
-                    } catch (err) {
-                        const textArea = document.createElement('textarea');
-                        textArea.value = keyText;
-                        document.body.appendChild(textArea);
-                        textArea.select();
-                        document.execCommand('copy');
-                        document.body.removeChild(textArea);
-                        copyBtn.textContent = '✅ TERSALIN!';
-                        setTimeout(() => {
-                            copyBtn.innerHTML = '📋 SALIN KEY';
-                        }, 1500);
-                    }
+            function attachRedirectHandler() {
+                const btn = document.getElementById('redirectButton');
+                if (!btn) return;
+                btn.addEventListener('click', () => {
+                    // Redirect ke panel cheat atau halaman berikutnya
+                    window.location.href = 'panel.html';
+                    // Ganti 'panel.html' dengan URL panel cheat kamu
                 });
             }
 
             window.resetVerification = function() {
-                if (countdownInterval) {
-                    clearInterval(countdownInterval);
-                    countdownInterval = null;
-                }
+                if (countdownInterval) clearInterval(countdownInterval);
                 currentStep = 0;
                 phase = 'follow';
                 countdownValue = 15;
